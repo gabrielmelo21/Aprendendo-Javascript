@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Regra de 3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        
+        input {
+            outline: none;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 21pt;
+            border: none;
+            box-shadow: 1px 1px 1px 1px silver;
+            width: 25%;
+            display: inline-block;
+        }
+        
+        h4 {
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4"></div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+
+
+                <div style="margin-top: 50px;" class="thumbnail">
+                    <h4 id='test'>Regra de 3 </h4>
+                    <center>
+                        <input class='form a' onkeyup="calc()" placeholder="A" type="number" id='a' style="display: inline-block;">
+                        <b>Está para: </b>
+                        <input class='form b' onkeyup="calc()" placeholder="B" type="number" id='b' style="display: inline-block;">
+
+                        <br>
+                        <input class='form c' onkeyup="calc()" placeholder="C" type="number" id='c' style="display: inline-block;">
+                        <b>Está para: </b>
+                        <input class='form x' onkeyup="calc()" placeholder="X" type="number" id='b' style="display: inline-block;">
+                    </center>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-4"></div>
+        </div>
+    </div>
+
+    <script>
+        function calc() {
+
+            var a = document.querySelector(".a").value;
+            var b = document.querySelector(".b").value;
+            var c = document.querySelector(".c").value;
+            var x = document.querySelector(".x");
+
+            var resultado = (parseInt(c) * parseInt(b)) / parseInt(a);
+
+
+
+            document.querySelector(".x").value = parseInt(resultado);
+
+
+        }
+    </script>
+</body>
+
+</html>
