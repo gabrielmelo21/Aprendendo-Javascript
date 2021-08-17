@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            background-color: #566470;
+        }
+        
+        input.saida {
+            outline: none;
+            border-radius: 0px;
+            margin: 0px;
+            padding: 5px;
+            font-family: normal;
+            font-size: 31pt;
+            border: none;
+            width: 90%;
+            color: white;
+            background-color: transparent;
+            display: inline-block;
+        }
+        
+        h1 {
+            color: white;
+            font-size: small;
+            margin: 10px;
+        }
+        
+        .thumbnail {
+            background-color: #1d1f21;
+            color: white;
+            border: none;
+            border-radius: none;
+        }
+        
+        .botao {
+            background-color: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            color: white;
+            border-radius: 0px;
+            font-size: 15pt;
+            padding: 10px;
+            display: inline-block;
+            border: none;
+            width: 20%;
+            margin: 1px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .btns {
+            margin-left: 12%;
+        }
+        
+        .botao:hover {
+            text-decoration: none;
+            color: black;
+            background-color: silver;
+        }
+        
+        .saida {
+            width: 100%;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4"></div>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <form name='form' class="thumbnail" style="margin-top: 20px;padding: 1px;float: center;">
+                    <h1>Calculadora</h1>
+                    <input name='visor' placeholder="0" class='saida' type="text" style="padding: 10px;margin: 10px;float: center !important;">
+
+                    <div class='btns'>
+                        <input class=" botao" type="button" value="1" onclick="botao(value);">
+                        <input class="  botao" type="button" value="2" onclick="botao(value);">
+                        <input class="  botao" type="button" value="3" onclick="botao(value);">
+
+                        <input class="  botao" type="button" value="4" onclick="botao(value);">
+                        <input class="  botao" type="button" value="5" onclick="botao(value);">
+                        <input class="  botao" type="button" value="6" onclick="botao(value);">
+
+                        <input class="  botao" type="button" value="7" onclick="botao(value);">
+                        <input class="  botao" type="button" value="8" onclick="botao(value);">
+                        <input class="  botao" type="button" value="9" onclick="botao(value);">
+
+                        <input class=" botao" type="button" value="C" onclick="reset();">
+                        <input class=" botao" type="button" value="=" onclick="calcular();">
+                        <input name='op' class=" botao" type="button" value="+" onclick="botao(value);">
+                        <input name='op' class=" botao" type="button" value="/" onclick="botao(value);">
+                        <input name='op' class=" botao" type="button" value="*" onclick="botao(value);">
+                        <input name='op' class=" botao" type="button" value="-" onclick="botao(value);">
+                        <input class=" botao" type="button" value="apagar" onclick="apagar();">
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-4"></div>
+        </div>
+    </div>
+
+    <script>
+        function botao(param) {
+            var save = document.form.visor.value; // SALVA O VALOR ATUAL DO VISOR 
+            document.form.visor.value = save + "" + param; //Atualiza o Visor
+        }
+
+        function apagar() {
+            var str = document.form.visor.value; //VISOR 
+            var allstr = document.form.visor.value.length; //PEGA O TAMANHO DA STRING
+            var ultima_letra = parseInt(allstr) - 1; //valor da ultima letra  
+            var str_array = str.split(''); // CONVERTE A STRING EM ARRAY 2,3,4,5
+            str_array.splice(ultima_letra, allstr); // remove 1 element (remove a ultima letra) remove(isso,disso)
+            var novo = str_array.join(''); // reconstruct the string (volta a ser string)
+            document.form.visor.value = novo; // ATUALIZA VISOR
+        }
+
+        function calcular() {
+            var resultado = eval(document.form.visor.value); //Faz o calculo
+            document.form.visor.value = resultado; //mostra o resultado
+        }
+
+        function reset() {
+            document.form.visor.value = ""; // limpa o visor
+        }
+    </script>
+</body>
+
+</html>
