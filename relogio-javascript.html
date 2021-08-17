@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Relógio</title>
+</head>
+
+<body>
+
+
+    <center>
+
+        <p id='demo'></p>
+        <script>
+            setInterval(function() {
+                let horas, minutos, segundos;
+                var data = new Date();
+                horas = data.getHours();
+                minutos = data.getMinutes();
+                segundos = data.getSeconds();
+
+                if (horas < 10) {
+                    horas = "0" + horas;
+                }
+                if (minutos < 10) {
+                    minutos = "0" + minutos;
+                }
+                if (segundos < 10) {
+                    segundos = "0" + segundos;
+                }
+
+
+                document.getElementById("demo").innerHTML = horas + ":" + minutos + ":" + segundos;
+            }, 500)
+        </script>
+
+    </center>
+</body>
+
+</html>
